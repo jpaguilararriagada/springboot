@@ -1,10 +1,15 @@
 package com.jota.rest.webservices.restfulwebservices.user;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class User {
     private Integer id;
+    @Size(min = 2, message = "El nombre tiene que tener al menos 2 caracteres")
     private String name;
+    @Past(message = "El cumple no debe estar en el pasado")
     private LocalDate birthDate;
 
     public User(Integer id, String name, LocalDate birthDate) {
